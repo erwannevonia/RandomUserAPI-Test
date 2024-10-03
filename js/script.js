@@ -53,12 +53,10 @@ fetch(URL)
         imageCell.appendChild(genderImage);
       }
       row.insertCell(4).textContent = user.location.city;
-      if (user.location.country === "France") {
-        row.insertCell(5).createElement('flag');
-        element.getElementById('flag').innerHTML = "<span class='fi fi-fr'></span>";
-      }
-      else {
-        row.insertCell(5).textContent = user.nat;
-      }
+      
+      var flagCell = row.insertCell(5);
+      let flag = user.nat;
+      flag = flag.toLowerCase();
+      flagCell.innerHTML = "<span class='fi fi-" + flag + "'></span>";
     });
   });
